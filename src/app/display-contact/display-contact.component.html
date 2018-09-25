@@ -1,0 +1,99 @@
+<!-- Pass contact name as the value for title input property. Also set
+     isHidden input propety to false if you want the panel body and footer
+     to be collapsed on the initial page load.-->
+
+<app-accordion [hasJustViewed]="selectedContact === contact.id" [title]="contact.firstName" [isHidden]="false">
+  <!-- Notice myPanelBody css class is present on this <div>. This CCS class is used as the selector on the <ng-content> tag in accordion component. So all this content in this DIV will be projected at the location where we have <ng-content> tag with css class selector .myPanelBody -->
+  <div class="flex myPanelBody">
+    <div class="picture">
+      <img mat-card-image [src]="contact.photoPath" alt="Photo of person">
+    </div>
+    <div class="content">
+      <mat-card-content>
+        <mat-list-item><span class="cont-title">Name:</span> {{contact.firstName}}</mat-list-item>
+
+        <mat-list-item><span class="cont-title">Last name:</span> {{contact.lastName}}</mat-list-item>
+
+        <mat-list-item><span class="cont-title">Phone number:</span> {{contact.phoneNumber}}</mat-list-item>
+
+        <mat-list-item><span class="cont-title">Email:</span> {{contact.email}}</mat-list-item>
+
+        <mat-list-item><span class="cont-title">Contact preference:</span> {{contact.contactPreference}}</mat-list-item>
+
+        <mat-list-item [ngSwitch]="contact.group"><span class="cont-title">Group:</span>
+          <span *ngSwitchCase="1">Work</span>
+          <span *ngSwitchCase="2">Family</span>
+          <span *ngSwitchCase="3">Friend</span>
+          <span *ngSwitchCase="4">Study</span>
+          <span *ngSwitchDefault>N/A</span>
+        </mat-list-item>
+
+        <mat-list-item><span class="cont-title">Date of Birth:</span> {{contact.dateOfBirth | date}}</mat-list-item>
+      </mat-card-content>
+    </div>
+  </div>
+
+  <div class="myPanelFooter">
+    <button mat-raised-button color="primary" class="btn" (click)="viewContact()">View</button>
+
+    <button mat-raised-button color="accent" class="btn" (click)="editContact()">Edit</button>
+
+    <span *ngIf="confirmDelete" class="confirm-btn">
+      <span class="conf-text">Are you sure you want to delete ?</span>
+      <button class="btn-sm" mat-raised-button color="warn" (click)="deleteContact()">Yes</button>
+      <button class="btn-sm" mat-raised-button color="primary" (click)="confirmDelete=false">No</button>
+    </span>
+    <span *ngIf="!confirmDelete">
+      <button mat-raised-button color="warn" class="btn" (click)="confirmDelete=true">Delete</button>
+    </span>
+  </div>
+</app-accordion>
+
+
+
+
+<!-- <mat-card-title class="cursorPointer" [class.pink]="selectedContact === contact.id">
+  <p>{{contact.firstName}} {{contact.lastName | uppercase}}</p>
+</mat-card-title>
+
+
+<div class="flex">
+  <div>
+    <img mat-card-image [src]="contact.photoPath" alt="Photo of person">
+  </div>
+  <div>
+    <mat-card-content>
+      <mat-list-item>Name: {{contact.firstName}}</mat-list-item>
+
+      <mat-list-item>Phone number: {{contact.phoneNumber}}</mat-list-item>
+
+      <mat-list-item>Email: {{contact.email}}</mat-list-item>
+
+      <mat-list-item>Contact preference: {{contact.contactPreference}}</mat-list-item>
+
+      <mat-list-item [ngSwitch]="contact.group">Group:
+        <span *ngSwitchCase="1">Work</span>
+        <span *ngSwitchCase="2">Family</span>
+        <span *ngSwitchCase="3">Friend</span>
+        <span *ngSwitchCase="4">Study</span>
+        <span *ngSwitchDefault>N/A</span>
+      </mat-list-item>
+
+      <mat-list-item>Date of Birth: {{contact.dateOfBirth | date}}</mat-list-item>
+    </mat-card-content>
+  </div>
+</div>
+<mat-card-actions>
+  <button mat-raised-button color="primary" (click)="viewContact()">View</button>
+
+  <button mat-raised-button color="accent" (click)="editContact()">Edit</button>
+
+  <span *ngIf="confirmDelete">
+    <span>Are you sure you want to delete ?</span>
+    <button mat-raised-button color="warn" (click)="deleteContact()">Yes</button>
+    <button mat-raised-button color="primary" (click)="confirmDelete=false">No</button>
+  </span>
+  <span *ngIf="!confirmDelete">
+    <button mat-raised-button color="warn" (click)="confirmDelete=true">Delete</button>
+  </span>
+</mat-card-actions> -->

@@ -1,0 +1,201 @@
+$cur-font: 'Caveat',
+cursive;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+mat-card {
+  margin: 30px 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-card-title {
+  margin-left: 50px;
+  margin-bottom: 70px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+mat-list-item {
+  list-style: none;
+  font-size: 24px;
+}
+
+.cont-title {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.flex {
+  display: flex;
+  margin: 0 auto;
+
+  .picture {
+    width: 30%;
+    margin-right: 150px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 250px;
+
+    margin: {
+      left: 70px;
+      right: 100px;
+      bottom: 30px;
+      top: 50px;
+    }
+  }
+
+  .content {
+    margin-top: 70px;
+    width: 70%;
+  }
+}
+
+.btn {
+  font-size: 24px;
+  font-family: $cur-font;
+  width: 150px;
+  margin: 0px 20px 0px 15px;
+}
+
+.myPanelFooter {
+  margin: 50px 0px 30px 0px;
+  width: 600px;
+
+  .confirm-btn {
+    display: block;
+    width: 100%;
+    margin: 30px 0px 0px 30px;
+
+    .btn-sm {
+      font-size: 18px;
+      width: 100px;
+      margin-left: 30px;
+      font-family: $cur-font;
+    }
+
+    .conf-text {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    button {
+      margin: 0px 10px;
+    }
+  }
+}
+
+
+// ===MEDIA===
+
+@media (max-width: 560px) {
+  .flex {
+    display: block;
+  }
+
+  .flex {
+    .picture {
+      margin: 0 auto;
+    }
+
+    .content {
+      margin-top: 70px 0px 0px 30px;
+      width: 70%;
+    }
+  }
+
+
+
+  .myPanelFooter {
+    width: 500px;
+
+    .btn {
+      width: 130px;
+    }
+
+    .btn-sm {
+      width: 70px;
+    }
+  }
+
+}
+
+@media (min-width: 561px) and (max-width: 715px) {
+  mat-list-item {
+    font-size: 15px;
+  }
+
+  .flex {
+    .picture {
+      margin: 0px 60px 0px 50px;
+    }
+
+    .content {
+      margin: 70px;
+      width: 70%;
+    }
+  }
+
+  .flex {
+    img {
+      border-radius: 50%;
+      width: 250px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+
+  .myPanelFooter {
+    width: 470px;
+
+    .btn {
+      width: 100px;
+      font-size: 16px;
+    }
+
+    .confirm-btn {
+      width: 100%;
+      margin-left: 0;
+
+      .btn-sm {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+
+      .conf-text {
+        font-size: 15px;
+      }
+    }
+  }
+
+
+}
+
+@media (min-width: 716px) and (max-width: 835px) {
+  .flex {
+    .picture {
+      margin: 0px 30px 0px 70px;
+    }
+  }
+}
+
+@media (min-width: 836px) {
+  .flex {
+    .picture {
+      margin-right: 80px;
+    }
+
+    .content {
+      margin-left: 30px;
+    }
+  }
+}

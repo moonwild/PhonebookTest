@@ -1,0 +1,46 @@
+<div class="container-detail" *ngIf="contact">
+  <mat-card-title>
+    <p class="title">{{contact.firstName}} {{contact.lastName}}</p>
+
+  </mat-card-title>
+
+  <div class="flex">
+    <div class="img">
+      <img mat-card-image [src]="contact.photoPath" alt="Photo of person">
+    </div>
+    <div class="content">
+      <mat-card-content>
+        <mat-list-item><span class="list-item">Name:</span> {{contact.firstName}}</mat-list-item>
+
+        <mat-list-item><span class="list-item">Last name:</span> {{contact.lastName}}</mat-list-item>
+
+        <mat-list-item><span class="list-item">Phone number:</span> {{contact.phoneNumber}}</mat-list-item>
+
+        <mat-list-item><span class="list-item">Email:</span> {{contact.email}}</mat-list-item>
+
+        <mat-list-item><span class="list-item">Contact preference:</span> {{contact.contactPreference}}</mat-list-item>
+
+
+
+        <mat-list-item [ngSwitch]="contact.group"><span class="list-item">Group:</span>
+          <span *ngSwitchCase="1">Work</span>
+          <span *ngSwitchCase="2">Family</span>
+          <span *ngSwitchCase="3">Friend</span>
+          <span *ngSwitchCase="4">Study</span>
+          <span *ngSwitchDefault>N/A</span>
+        </mat-list-item>
+
+
+
+        <mat-list-item><span class="list-item">Date of Birth:</span> {{contact.dateOfBirth | date}}</mat-list-item>
+      </mat-card-content>
+    </div>
+  </div>
+  <mat-card-footer class="footer">
+    <!-- {id:employee.id} Its optional parametr for /list. Pass optional parametr to list component -->
+    <button mat-button mat-raised-button color="primary" [routerLink]="['/list', {id: contact.id}]" queryParamsHandling="preserve">Back
+      To List Contacts</button>
+
+    <button mat-button mat-raised-button color="primary" class="right" (click)="viewNextContact()">View Next Contact</button>
+  </mat-card-footer>
+</div>

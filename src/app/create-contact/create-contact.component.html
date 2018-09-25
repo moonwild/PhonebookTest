@@ -1,0 +1,92 @@
+<div class="container" *ngIf="contact">
+  <mat-toolbar color="primary">
+    <p class="title-text">{{panelTitle}}</p>
+  </mat-toolbar>
+  <mat-card>
+
+    <form #contactForm="ngForm" novalidate (ngSubmit)="saveNgSubmitContact()">
+      <mat-form-field>
+        <input [(ngModel)]="contact.firstName" name="firstName" type="text" matInput placeholder="First Name" value=""
+          #firstName="ngModel" required>
+        <mat-error *ngIf="firstName.invalid && firstName.touched">
+          Please enter first name
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)]="contact.lastName" name="lastName" type="text" matInput placeholder="Last Name" value=""
+          #lastName="ngModel" required>
+        <mat-error *ngIf="lastName.invalid && lastName.touched">
+          Please enter last name
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)]="contact.phoneNumber" name="phoneNumber" type="text" matInput placeholder="Phone Number"
+          value="" #phoneNumber="ngModel" [required]="contactPreference.value=='Phone'">
+        <mat-error *ngIf="phoneNumber.invalid">
+          Please enter phone
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [(ngModel)]="contact.group" appSelectValidator="select" required name="groupName" matInput
+          placeholder="Group name" #groupName="ngModel">
+          <mat-option value="select">Select group name</mat-option>
+          <mat-option *ngFor="let group of groups" [value]="group.id">{{group.groupname}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="groupName?.errors?.defaultSelected">
+          Please enter group
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)]="contact.email" name="email" #email="ngModel" type="text" matInput placeholder="Email" value=""
+          #email="ngModel" [required]="contactPreference.value=='Email'" email>
+        <mat-error *ngIf="email?.errors?.required">
+          Please enter email address
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.email">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-radio-group #contactPreference="ngModel" name="contactPreference" [(ngModel)]="contact.contactPreference"
+        class="mt-mb">
+        <mat-label>Contact preference</mat-label>
+        <mat-radio-button required value="Email">Email
+        </mat-radio-button>
+        <mat-radio-button required value="Phone">Phone
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="contact.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" [matDatepicker]="picker"
+          placeholder="Date Of Birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)]="contact.photoPath" name="photoPath" type="text" matInput placeholder="Photo" value="">
+      </mat-form-field>
+
+      <div class="btn-group">
+
+
+        <img [src]="contact.photoPath" alt="some photo" class="img-prev" *ngIf="previewPhoto && contact.photoPath !== '' && contact.photoPath !== null">
+
+
+
+      </div>
+      <button mat-button mat-raised-button color="primary" (click)="togglePhotoPreview()" type="button" *ngIf="contact.photoPath !== '' && contact.photoPath !== null">{{previewPhoto
+        ? "Hide " : "Show "}} Preview</button>
+      <button mat-button mat-raised-button color="primary" type="submit">Save</button>
+    </form>
+
+    Angular form model {{contactForm.value | json}}
+    <br>
+    <hr>
+    Our MOdel {{contact | json}}
+  </mat-card>
+</div>

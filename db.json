@@ -1,0 +1,59 @@
+{
+  "contacts": [
+    {
+      "id": 6,
+      "firstName": "sMary",
+      "lastName": "sdf",
+      "dateOfBirth": "1777-06-19T22:38:00.000Z",
+      "group": 2,
+      "photoPath": "assets/images/sparkle.jpg",
+      "contactPreference": "Email",
+      "phoneNumber": "4446",
+      "email": "ggg@rt.com"
+    },
+    {
+      "id": 7,
+      "firstName": "Somepony",
+      "lastName": "www",
+      "dateOfBirth": "1777-06-19T22:38:00.000Z",
+      "group": 3,
+      "photoPath": "assets/images/luna.jpg",
+      "contactPreference": "Email",
+      "phoneNumber": "222",
+      "email": "ggg@rt.com"
+    },
+    {
+      "id": 8,
+      "firstName": "qqq",
+      "lastName": "Greatpony",
+      "dateOfBirth": "1777-06-19T22:38:00.000Z",
+      "group": 2,
+      "photoPath": "assets/images/sparkle.jpg",
+      "contactPreference": "Email",
+      "phoneNumber": "222",
+      "email": "ggg@rt.com"
+    },
+    {
+      "id": 9,
+      "firstName": "Somepony",
+      "lastName": "MainBeautifulPony",
+      "dateOfBirth": "1777-06-19T22:38:00.000Z",
+      "group": 1,
+      "photoPath": "assets/images/sparkle.jpg",
+      "contactPreference": "Email",
+      "phoneNumber": "222",
+      "email": "ggg@rt.com"
+    },
+    {
+      "id": 10,
+      "firstName": "Somepony",
+      "lastName": "Elegantpony",
+      "dateOfBirth": "2018-08-23T22:00:00.000Z",
+      "group": 1,
+      "photoPath": "assets/images/sparkle.jpg",
+      "contactPreference": "Email",
+      "phoneNumber": "555",
+      "email": "ggg@rt.com"
+    }
+  ]
+}

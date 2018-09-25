@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-card-title {
+
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+  .title {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    color: #ff005e;
+    text-decoration: underline;
+
+    font: {
+      size: 35px;
+      family: 'Caveat', cursive;
+    }
+
+  }
+}
+
+.flex {
+  display: flex;
+
+  .img {
+    width: 50%;
+
+    img {
+      margin-left: 100px;
+      margin-bottom: 30px;
+      width: 250px;
+      border-radius: 50%;
+      box-shadow: 5px 2px 15px 0px rgba(0, 0, 0, 0.42);
+    }
+  }
+
+  .content {
+    width: 50%;
+
+    mat-list-item {
+      list-style: none;
+      font-size: 24px;
+
+
+
+
+      .list-item {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.footer {
+  display: block;
+  text-align: center;
+  margin-top: 70px;
+
+  button {
+    font-size: 20px;
+    padding: 0 20px;
+  }
+
+
+  .right {
+    margin-left: 270px;
+  }
+}

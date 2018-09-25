@@ -1,0 +1,13 @@
+<!-- Add class.pink only if hasJustViewed property is true -->
+<!-- When clicked on the title, isHidden boolean property is toggled from true to false & vice-versa. We use       this property to toggle the visibility of panel body & footer -->
+<mat-card-title class="cursorPointer" [class.pink]="hasJustViewed" (click)="isHidden=!isHidden">
+  <p>{{title | uppercase}}</p>
+</mat-card-title>
+
+<div class="flex" [hidden]="isHidden">
+  <!-- ng-content specifies the slot into which the content will be projected by the component that consumes this accordion component -->
+  <ng-content select=".myPanelBody"></ng-content>
+</div>
+<div [hidden]="isHidden">
+  <!-- Another slot into which the content can be projected. Since we have more than one slot into which the content can be projected, this is called multi-slot content projection-->
+  <ng-content select=".myPanelFooter"></ng-content>

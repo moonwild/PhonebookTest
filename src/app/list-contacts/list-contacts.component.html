@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-form-field class="search">
+    <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search By Last Name" value="">
+  </mat-form-field>
+
+  <mat-card *ngFor="let contact of filteredContacts">
+    <!-- we pass contact from ngFor to the input property [contact] -->
+    <app-display-contact [contact]="contact" [searchTerm]="searchTerm" (notifyDelete)="onDeleteNotification($event)"></app-display-contact>
+  </mat-card>
+</div>
+
+<div *ngIf="error">
+  {{error}}
+</div>

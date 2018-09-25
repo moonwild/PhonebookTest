@@ -1,0 +1,24 @@
+.cursorPointer {
+  cursor: pointer;
+}
+
+mat-card-title {
+  p {
+    text-align: center;
+    padding: 15px;
+
+    font: {
+      weight: 700;
+      size: 40px;
+      family: 'Caveat', cursive;
+    }
+  }
+}
+
+mat-card-title:hover {
+  color: rgba(76, 6, 240, 0.753);
+}
+
+.pink {
+  color: #160f11;
+}
